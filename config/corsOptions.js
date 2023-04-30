@@ -13,4 +13,6 @@ const corsOptions = {
     optionsSuccessStatus: 200
 }
 
+//token ile de yapılabilir
+
 module.exports = corsOptions

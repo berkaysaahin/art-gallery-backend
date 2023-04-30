@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const path = require('path')
@@ -6,18 +7,17 @@ const errorHandler = require('./middleware/errorHandler')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const corsOptions = require('./config/corsOptions')
-
 const PORT = process.env.PORT || 3500
+
+console.log(process.env.NODE_ENV)
 
 app.use(logger)
 
 app.use(cors(corsOptions))
 
-app.use(cookieParser())
-
 app.use(express.json())
 
-app.use(cookieParser)
+app.use(cookieParser())
 
 app.use('/', express.static(path.join(__dirname, 'public')))
 //in path.join /public /is unnecessary, express.static is a middleware
